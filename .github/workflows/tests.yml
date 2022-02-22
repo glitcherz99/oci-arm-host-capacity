@@ -41,10 +41,11 @@ jobs:
       - name: Run script
         run: |
           php index.php
-        env:
+	  
+	          env:
           OCI_REGION: ${{ secrets.OCI_REGION }}
           OCI_USER_ID: ${{ secrets.OCI_USER_ID }}
-	  OCI_TENANCY_ID: ${{ secrets.OCI_TENANCY_ID }}
+		  OCI_TENANCY_ID: ${{ secrets.OCI_TENANCY_ID }}
           OCI_KEY_FINGERPRINT: ${{ secrets.OCI_KEY_FINGERPRINT }}
           OCI_PRIVATE_KEY_FILENAME: ${{ secrets.OCI_PRIVATE_KEY_FILENAME }}
           OCI_AVAILABILITY_DOMAIN: ${{ secrets.OCI_AVAILABILITY_DOMAIN }}
@@ -60,3 +61,4 @@ jobs:
           AD_ALWAYS_FREE: ${{ secrets.AD_ALWAYS_FREE }}
           TEST_IMAGE_ID: ${{ secrets.TEST_IMAGE_ID }}
           TEST_SUBNET_ID: ${{ secrets.TEST_SUBNET_ID }}
+
