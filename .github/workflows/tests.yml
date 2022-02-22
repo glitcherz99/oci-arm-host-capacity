@@ -60,14 +60,3 @@ jobs:
           OCI_SSH_PUBLIC_KEY: ${{ secrets.OCI_SSH_PUBLIC_KEY }}
           TELEGRAM_USER_ID: ${{ secrets.TELEGRAM_USER_ID }}
           TELEGRAM_BOT_API_KEY: ${{ secrets.TELEGRAM_BOT_API_KEY }}
-
-ss
-      - name: Run script
-        run: |
-          php index.php
-        env:
-          OCI_REGION: ${{ secrets.OCI_REGION }}
-          OCI_USER_ID: ${{ secrets.OCI_USER_ID }}
-	@@ -64,6 +64,3 @@ jobs:
-          TEST_IMAGE_ID: ${{ secrets.TEST_IMAGE_ID }}
-          TEST_SUBNET_ID: ${{ secrets.TEST_SUBNET_ID }}
