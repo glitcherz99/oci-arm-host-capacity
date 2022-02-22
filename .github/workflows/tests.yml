@@ -1,5 +1,4 @@
 name: Tests
-
 on:
   push:
     branches:
@@ -20,13 +19,22 @@ jobs:
     name: integration-tests (PHP ${{ matrix.php-versions }})
     steps:
       - uses: actions/checkout@v1
+
+    
+        
+          
+    
+
+        
+    
+    @@ -41,9 +41,9 @@ jobs:
+  
       - name: Install PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-versions }}
       - name: Validate composer.json and composer.lock
         run: composer validate
-
       - name: Get Composer Cache Directory
         id: composer-cache
         run: |
@@ -37,16 +45,25 @@ jobs:
           key: ${{ runner.os }}-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
             ${{ runner.os }}-${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-
-
       - name: Install dependencies
         run: |
           composer update --prefer-dist --no-progress
       - name: Run script
         run: |
           php index.php
-        env:	
+        env:
           OCI_REGION: ${{ secrets.OCI_REGION }}
           OCI_USER_ID: ${{ secrets.OCI_USER_ID }}
+
+    
+        
+          
+    
+
+        
+    
+    @@ -64,6 +64,3 @@ jobs:
+  
           OCI_TENANCY_ID: ${{ secrets.OCI_TENANCY_ID }}
           OCI_KEY_FINGERPRINT: ${{ secrets.OCI_KEY_FINGERPRINT }}
           OCI_PRIVATE_KEY_FILENAME: ${{ secrets.OCI_PRIVATE_KEY_FILENAME }}
@@ -60,3 +77,6 @@ jobs:
           OCI_SSH_PUBLIC_KEY: ${{ secrets.OCI_SSH_PUBLIC_KEY }}
           TELEGRAM_USER_ID: ${{ secrets.TELEGRAM_USER_ID }}
           TELEGRAM_BOT_API_KEY: ${{ secrets.TELEGRAM_BOT_API_KEY }}
+          AD_ALWAYS_FREE: ${{ secrets.AD_ALWAYS_FREE }}
+          TEST_IMAGE_ID: ${{ secrets.TEST_IMAGE_ID }}
+          TEST_SUBNET_ID: ${{ secrets.TEST_SUBNET_ID }}
